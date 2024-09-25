@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.devsenior.ds_find_product.DsFindProductApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.793 s -- in br.com.devsenior.ds_find_product.DsFindProductApplicationTests

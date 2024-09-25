@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ds-find-product
+spec:
+  selector:
+    matchLabels:
+      app: ds-find-product
+  template:
+    metadata:
+      labels:
+        app: ds-find-product
+    spec:
+      containers:
+      - name: ds-find-product
+        image: alexsouzasilva/ds-find-product:latest
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 9099
