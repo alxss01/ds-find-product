@@ -1,0 +1,32 @@
+name: Build
+on:
+    workflow_dispatch:
+        inputs:
+            enable-sonar:
+                description: "Executar scan?"  
+                required: false
+                type: choice
+                options:
+                    - true
+                    - false
+            java-version:
+                description: "Versão Java"
+                required: false
+                default: '17'
+                type: choice
+                options:
+                    - '11'
+                    - '17'
+jobs:
+    call-build:
+        uses: alxss01/core-reusable/.github/workflows/maven-build.yaml@main
+        with: 
+           enable-sonar: ${{ inputs.enable-sonar }}
+           java-version: ${{ inputs.java-version }}
+    verify:
+        runs-on: ubuntu-latest
+        needs: call-build
+        steps:
+            - name: Verify
+              run: echo ${{ needs.call-build.outputs.version }}
+
